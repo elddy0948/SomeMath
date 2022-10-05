@@ -8,7 +8,7 @@ private:
 	int x;
 	int y;
 	int z;
-
+	friend std::ostream& operator<<(std::ostream& os, const Vec3& vec);
 public:
 	Vec3(int x, int y, int z)
 		: x(x), y(y), z(z) {}
@@ -20,8 +20,6 @@ public:
 	Vec3 operator+(const Vec3 vec) const;
 	Vec3 operator-(const Vec3 vec) const;
 	Vec3 operator*(const int s) const;
-
-	void ShowVec3() const;
 };
 
 // Operators Implementations
@@ -63,7 +61,8 @@ Vec3 operator*(const int s, const Vec3& vec)
 	return vec * s;
 }
 
-void Vec3::ShowVec3() const
+std::ostream& operator<<(std::ostream& os, const Vec3& vec)
 {
-	std::cout << '(' << x << ", " << y << ", " << z << ')' << std::endl;
+	os << '(' << vec.x << ", " << vec.y << ", " << vec.z << ')';
+	return os;
 }
