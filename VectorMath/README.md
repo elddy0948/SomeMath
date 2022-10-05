@@ -36,7 +36,24 @@ Vec3 operator*(const int s, const Vec3& vec)
 
 ### 벡터의 크기
 
+```cpp
+auto Vec3::Size() const
+{
+ int vec_square = x * x + y * y + z * z;
+ auto vec_size = std::sqrt(vec_square);
+ return vec_size;
+}
+```
+
 ### Normalization
+
+```cpp
+Vec3 Vec3::Normalize() const
+{
+ auto vec_size = this->Size();
+ return Vec3(x / vec_size, y / vec_size, z / vec_size);
+}
+```
 
 ### 내적
 

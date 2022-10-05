@@ -1,16 +1,17 @@
 #pragma once
 
 #include <iostream>
+#include <cmath>
 
 class Vec3
 {
 private:
-	int x;
-	int y;
-	int z;
+	float x;
+	float y;
+	float z;
 	friend std::ostream& operator<<(std::ostream& os, const Vec3& vec);
 public:
-	Vec3(int x, int y, int z)
+	Vec3(float x, float y, float z)
 		: x(x), y(y), z(z) {}
 	~Vec3() = default;
 
@@ -20,6 +21,9 @@ public:
 	Vec3 operator+(const Vec3 vec) const;
 	Vec3 operator-(const Vec3 vec) const;
 	Vec3 operator*(const int s) const;
+
+	auto Size() const;
+	Vec3 Normalize() const;
 };
 
 // Operators Implementations
@@ -59,6 +63,20 @@ Vec3 Vec3::operator*(const int s) const
 Vec3 operator*(const int s, const Vec3& vec)
 {
 	return vec * s;
+}
+
+auto Vec3::Size() const
+{
+	int vec_square = x * x + y * y + z * z;
+	auto vec_size = std::sqrt(vec_square);
+	return vec_size;
+}
+
+Vec3 Vec3::Normalize() const
+{
+	// u / ||u||
+	auto vec_size = this->Size();
+	return Vec3(x / vec_size, y / vec_size, z / vec_size);
 }
 
 std::ostream& operator<<(std::ostream& os, const Vec3& vec)
