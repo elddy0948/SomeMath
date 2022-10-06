@@ -57,4 +57,18 @@ Vec3 Vec3::Normalize() const
 
 ### 내적
 
+```cpp
+auto Vec3::Dot(const Vec3 vec) const
+{
+ return x * vec.x + y * vec.y + z * vec.z;
+}
+```
+
 ### 외적
+
+```cpp
+Vec3 Vec3::Cross(const Vec3 vec) const
+{
+ return Vec3(y * vec.z - z * vec.y, z * vec.x - x * vec.z, x * vec.y - y * vec.x);
+}
+```

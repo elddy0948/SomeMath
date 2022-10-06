@@ -24,6 +24,9 @@ public:
 
 	auto Size() const;
 	Vec3 Normalize() const;
+
+	auto Dot(const Vec3 vec) const;	// ³»Àû
+	Vec3 Cross(const Vec3 vec) const;	
 };
 
 // Operators Implementations
@@ -77,6 +80,16 @@ Vec3 Vec3::Normalize() const
 	// u / ||u||
 	auto vec_size = this->Size();
 	return Vec3(x / vec_size, y / vec_size, z / vec_size);
+}
+
+auto Vec3::Dot(const Vec3 vec) const
+{
+	return x * vec.x + y * vec.y + z * vec.z;
+}
+
+Vec3 Vec3::Cross(const Vec3 vec) const
+{
+	return Vec3(y * vec.z - z * vec.y, z * vec.x - x * vec.z, x * vec.y - y * vec.x);
 }
 
 std::ostream& operator<<(std::ostream& os, const Vec3& vec)
