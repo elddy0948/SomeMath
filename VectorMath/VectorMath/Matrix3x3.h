@@ -24,6 +24,11 @@ public:
 
 	void operator+=(const Matrix3x3& pMatrix);
 	Matrix3x3 operator+(const Matrix3x3& pMatrix) const;
+	void operator-=(const Matrix3x3& pMatrix);
+	Matrix3x3 operator-(const Matrix3x3& pMatrix) const;
+	void operator*=(const int scalar);
+	Matrix3x3 operator*(const int scalar) const;
+
 
 	Vec3 GetRow(int index) const 
 	{
