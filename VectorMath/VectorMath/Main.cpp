@@ -19,10 +19,18 @@ int main(void)
 	/*std::cout << u.Dot(v) << std::endl;
 	std::cout << u.Cross(v) << std::endl;*/
 
-	Matrix3x3 matrix{ Vec3(3, 2, 1), Vec3(2, 1, 3), Vec3(1, 2, 3) };
+	Matrix3x3 mat1{ Vec3(1, 2, 3), Vec3(4, 5, 6), Vec3(7, 8, 9) };
+	Matrix3x3 mat2{ Vec3(1, 2, 3), Vec3(4, 5, 6), Vec3(7, 8, 9) };
+	Matrix3x3 addMat = mat1 + mat2;
+	mat1 += mat2;
 
 	for (int i = 0; i < 3; i++)
 	{
-		std::cout << matrix.GetRow(i) << std::endl;
+		std::cout << addMat.GetRow(i) << std::endl;
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		std::cout << mat1.GetRow(i) << std::endl;
 	}
 }

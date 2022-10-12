@@ -22,8 +22,25 @@ public:
 		matrix[2] = vec2;
 	}
 
+	void operator+=(const Matrix3x3& pMatrix);
+	Matrix3x3 operator+(const Matrix3x3& pMatrix) const;
+
 	Vec3 GetRow(int index) const 
 	{
 		return matrix[index];
 	}
 };
+
+void Matrix3x3::operator+=(const Matrix3x3& pMatrix)
+{
+	matrix[0] += pMatrix.matrix[0];
+	matrix[1] += pMatrix.matrix[1];
+	matrix[2] += pMatrix.matrix[2];
+}
+
+Matrix3x3 Matrix3x3::operator+(const Matrix3x3& pMatrix) const
+{
+	Matrix3x3 result(*this);
+	result += pMatrix;
+	return result;
+}
