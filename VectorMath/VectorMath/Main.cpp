@@ -1,4 +1,5 @@
 #include "Vec3.h"
+#include "Matrix3x3.h"
 
 int main(void)
 {
@@ -15,6 +16,13 @@ int main(void)
 	std::cout << u.Normalize() << std::endl;
 	std::cout << u.Normalize().Size() << std::endl;*/
 
-	std::cout << u.Dot(v) << std::endl;
-	std::cout << u.Cross(v) << std::endl;
+	/*std::cout << u.Dot(v) << std::endl;
+	std::cout << u.Cross(v) << std::endl;*/
+
+	Matrix3x3 matrix{ Vec3(3, 2, 1), Vec3(2, 1, 3), Vec3(1, 2, 3) };
+
+	for (int i = 0; i < 3; i++)
+	{
+		std::cout << matrix.GetRow(i) << std::endl;
+	}
 }

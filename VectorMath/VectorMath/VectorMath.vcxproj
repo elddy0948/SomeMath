@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Matrix3x3.h" />
     <ClInclude Include="Vec3.h" />
   </ItemGroup>
   <ItemGroup>
