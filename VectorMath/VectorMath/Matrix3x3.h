@@ -49,3 +49,28 @@ Matrix3x3 Matrix3x3::operator+(const Matrix3x3& pMatrix) const
 	result += pMatrix;
 	return result;
 }
+
+void Matrix3x3::operator-=(const Matrix3x3& pMatrix)
+{
+	matrix[0] -= pMatrix.matrix[0];
+	matrix[1] -= pMatrix.matrix[1];
+	matrix[2] -= pMatrix.matrix[2];
+}
+
+Matrix3x3 Matrix3x3::operator-(const Matrix3x3& pMatrix) const
+{
+	Matrix3x3 result(*this);
+	result -= pMatrix;
+	return result;
+}
+
+void Matrix3x3::operator*=(const int scalar)
+{
+	matrix[0] *= scalar;
+	matrix[1] *= scalar;
+	matrix[2] *= scalar;
+}
+
+Matrix3x3 Matrix3x3::operator*(const int scalar) const
+{
+}

@@ -21,6 +21,7 @@ public:
 	Vec3 operator+(const Vec3 vec) const;
 	Vec3 operator-(const Vec3 vec) const;
 	Vec3 operator*(const int s) const;
+	Vec3& operator*=(const int s);
 
 	auto Size() const;
 	Vec3 Normalize() const;
@@ -56,6 +57,14 @@ Vec3 Vec3::operator+(const Vec3 vec) const
 Vec3 Vec3::operator-(const Vec3 vec) const
 {
 	return Vec3(x - vec.x, y - vec.y, z - vec.z);
+}
+
+Vec3& Vec3::operator*=(const int s)
+{
+	x *= s;
+	y *= s;
+	z *= s;
+	return *this;
 }
 
 Vec3 Vec3::operator*(const int s) const
